@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -33,6 +33,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <title>{config.blog.metadata.title.default}</title>
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-6xl m-auto",
