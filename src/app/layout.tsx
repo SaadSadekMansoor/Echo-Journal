@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -41,7 +42,12 @@ export default function RootLayout({
         <Providers>
           <main>{children}</main>
         </Providers>
+
+        {/* Vercel Analytics */}
         <Analytics />
+
+        {/* Vercel Speed Insights */}
+        <SpeedInsights />
       </body>
     </html>
   );
