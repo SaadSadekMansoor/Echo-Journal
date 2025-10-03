@@ -12,28 +12,35 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FunctionComponent } from "react";
+
 interface MenuItem {
   name: string;
   href: string;
   openInNewTab?: boolean;
 }
+
+// Updated menuItems with your live Photo Blog link
 const menuItems: MenuItem[] = [
   { name: "Blog", href: "/" },
+  { name: "Photo Blog", href: "https://wanderers-trail-tales.saadsworkspace.me/", openInNewTab: true },
   { name: "About", href: "/about" },
 ];
+
 export const Navigation: FunctionComponent = () => {
   const pathname = usePathname();
 
   return (
     <nav>
+      {/* Desktop Navigation */}
       <div className="hidden md:flex items-center">
         {menuItems.map((item) => (
           <div key={item.href} className="ml-4 md:ml-8">
             <a
               href={item.href}
               target={item.openInNewTab ? "_blank" : "_self"}
+              rel={item.openInNewTab ? "noopener noreferrer" : undefined}
               className={cn(
-                "hover:text-gray-900",
+                "hover:text-gray-900 transition-colors",
                 pathname === item.href && "font-semibold"
               )}
             >
@@ -42,10 +49,12 @@ export const Navigation: FunctionComponent = () => {
           </div>
         ))}
       </div>
+
+      {/* Mobile Navigation */}
       <div className="md:hidden">
         <Sheet>
           <SheetTrigger>
-            <Menu size="24" />
+            <Menu size={24} />
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
@@ -55,8 +64,9 @@ export const Navigation: FunctionComponent = () => {
                     key={item.href}
                     href={item.href}
                     target={item.openInNewTab ? "_blank" : "_self"}
+                    rel={item.openInNewTab ? "noopener noreferrer" : undefined}
                     className={cn(
-                      "block py-2",
+                      "block py-2 hover:text-gray-900",
                       pathname === item.href && "font-semibold"
                     )}
                   >
