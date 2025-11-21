@@ -42,11 +42,14 @@ const Page = async () => {
       <Header />
 
       <div className="prose lg:prose-lg dark:prose-invert m-auto mt-20 mb-10 blog-content">
-        {/* Image above the About Me content */}
+
+        {/* Full-width vertical image */}
         <img
           src="https://iili.io/f35UIEP.jpg"
           alt="Saad"
-          className="w-40 h-40 rounded-full mx-auto mb-10"
+          width={1066}
+          height={1600}
+          className="mx-auto mb-10 rounded-xl"
         />
 
         <Markdown>{content}</Markdown>
