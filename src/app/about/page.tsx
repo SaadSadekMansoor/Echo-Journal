@@ -26,7 +26,6 @@ export async function generateMetadata() {
       title: "About Me",
       description: "Learn more about Saad, his projects, and experiences",
       images: [
-        // Add your images here later if needed
         signOgImageUrl({
           title: "Saad",
           label: "About Me",
@@ -41,9 +40,18 @@ const Page = async () => {
   return (
     <div className="container mx-auto px-5">
       <Header />
+
       <div className="prose lg:prose-lg dark:prose-invert m-auto mt-20 mb-10 blog-content">
+        {/* Image above the About Me content */}
+        <img
+          src="https://freeimage.host/i/f2ys6TN"
+          alt="Saad"
+          className="w-40 h-40 rounded-full mx-auto mb-10"
+        />
+
         <Markdown>{content}</Markdown>
       </div>
+
       <Footer />
     </div>
   );
